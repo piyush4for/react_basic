@@ -1,23 +1,35 @@
 import React, { useState } from "react";
 import "./styles.css";
 
+var text = "piyush";
+
+var dictionary = {
+  "❤": "heart",
+  "😀": "smile",
+  "😁": "cheese",
+  "😂": "laugh"
+};
+
 export default function App() {
-  var text = "piyush";
+  var [meaning, setmeaning] = useState("");
 
-  var [userInput, setInput] = useState("");
+  function emojiInputHandler(event) {
+    var userInput = event.target.value;
+    var meaning = dictionary[userInput];
 
-  function inputHandler(event) {
-    console.log(event.target.value);
-    setInput(event.target.value);
+    if (meaning === undefined) {
+      meaning = "we cant find in database";
+    }
+    setmeaning("Emoji: " + meaning);
   }
 
   return (
     <div className="App">
       <h1>
-        welcome <span style={{ color: "blue" }}>{text}</span>
+        welcome <span style={{ color: "blue" }}>{text}</span> to Emojipedia
       </h1>
-      <input onChange={inputHandler}></input>
-      <div>Welcome {userInput}</div>
+      <input onChange={emojiInputHandler}></input>
+      <div>{meaning}</div>
     </div>
   );
 }
