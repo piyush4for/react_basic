@@ -3,21 +3,21 @@ import "./styles.css";
 
 export default function App() {
   var text = "piyush";
-  var color = "blue";
 
-  const [likeCounter, setCounterValue] = useState(0);
+  var [userInput, setInput] = useState("");
 
-  function likeEvent() {
-    setCounterValue(likeCounter + 1);
+  function inputHandler(event) {
+    console.log(event.target.value);
+    setInput(event.target.value);
   }
 
   return (
     <div className="App">
       <h1>
-        welcome <span style={{ color: color }}>{text}</span>
+        welcome <span style={{ color: "blue" }}>{text}</span>
       </h1>
-      <button onClick={likeEvent}>Like</button>
-      {likeCounter}
+      <input onChange={inputHandler}></input>
+      <div>Welcome {userInput}</div>
     </div>
   );
 }
