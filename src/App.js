@@ -1,11 +1,19 @@
 import "./styles.css";
 
-var text = "hi piyush";
-var color = "green";
+var text = "piyush";
+var color = "blue";
 export default function App() {
   return (
     <div className="App">
-      <h1 style={{ backgroundColor: color }}>{text}</h1>
+      <h1>
+        welcome <span style={{ color: "blue" }}>{text}</span>
+      </h1>
     </div>
   );
 }
+
+/**
+ * things to notice
+ * class-> className
+ * style->taken as object
+ */
